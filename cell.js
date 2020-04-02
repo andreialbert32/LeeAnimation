@@ -1,7 +1,9 @@
-function cell(x,y){
+function cell(x,y,r,g,b){
   this.x = x ;
   this.y = y ;
-
+  this.r = r ;
+  this.g = g ;
+  this.b = b ;
   this.show = function () {
     noFill() ;
     stroke(0) ;
@@ -9,12 +11,12 @@ function cell(x,y){
     rect(this.x*sizeCell,this.y*sizeCell,sizeCell,sizeCell) ;
   }
   this.mark = function () {
-    fill(255,0,0) ;
+    fill(this.r,this.g,this.b) ;
     rect(this.x*sizeCell,this.y*sizeCell,sizeCell,sizeCell) ;
   }
   this.visited = function () {
     let arr = get(this.x*sizeCell+1,this.y*sizeCell+1) ;
-    if(arr[0] == 255)
+    if(arr[0] != 225 || arr[1] !=225 || arr[2] !=225)
       return true ;
     return false ;
   }
